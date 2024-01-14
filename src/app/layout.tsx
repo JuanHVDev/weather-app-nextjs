@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Metrophobic } from 'next/font/google'
 import './globals.css'
+import { Providers } from '@/components/Provider'
+import NavBar from '@/components/NavBar'
 
-const inter = Inter({ subsets: ['latin'] })
+const metrophobic = Metrophobic({
+  subsets: ['latin'],
+  weight: '400'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,10 +18,16 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+})
+{
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${metrophobic.className} text-4xl text-zinc-800`}>
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
