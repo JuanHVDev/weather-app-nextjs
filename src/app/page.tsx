@@ -7,8 +7,6 @@ import { getDateDay } from "@/utils";
 import clsx from "clsx";
 import { WiHumidity, WiRain, WiRaindrop } from "react-icons/wi";
 
-const revalidate = 1000
-
 export default async function Home()
 {
   const cityWeather = await weatherCityByName()

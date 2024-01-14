@@ -1,6 +1,8 @@
 "use client"
+import { weatherCityByName } from '@/actions/weather'
 import { Button, Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import React, { useState } from 'react'
+import { useFormState } from 'react-dom'
 import { MdOutlineLocationOn, MdOutlineLocationSearching } from 'react-icons/md'
 import { TfiLocationPin, TfiSearch } from 'react-icons/tfi'
 import { TiLocationArrowOutline, TiLocationOutline, TiWeatherSunny } from 'react-icons/ti'
@@ -35,9 +37,13 @@ export default function NavBar({ }: Props)
           <p>Ciudad de México</p>
         </NavbarItem>
         <NavbarItem className=''>
-          <Input type='search' placeholder='London' variant='bordered'
-            // isInvalid={error ? false : true} errorMessage='City Not Found'
-            radius='full' value={search} onValueChange={setSearch} size='sm' className='w-52 sm:w-32 lg:w-52 bg-transparent' startContent={<TfiSearch size={18} />} />
+          <form
+          // action={}
+          >
+            <Input type='search' placeholder='London' variant='bordered' name='search' id='search'
+              // isInvalid={error ? false : true} errorMessage='City Not Found'
+              radius='full' value={search} onValueChange={setSearch} size='sm' className='w-52 sm:w-32 lg:w-52 bg-transparent' startContent={<TfiSearch size={18} />} />
+          </form>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className=''>
