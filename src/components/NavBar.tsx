@@ -20,6 +20,10 @@ export default function NavBar()
   useEffect(() =>
   {
     setSearch('')
+    if (searchParams.get("search"))
+    {
+      setSearch(searchParams.get("search") as string)
+    }
   }, [])
 
   const handleChange = (e: React.KeyboardEvent<HTMLInputElement> | KeyboardEvent) =>
