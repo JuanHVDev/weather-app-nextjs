@@ -6,10 +6,14 @@ import { TiArrowDownOutline, TiArrowUpOutline, TiCalendarOutline, TiCompass } fr
 import { getDateDay } from "@/utils";
 import clsx from "clsx";
 import { WiHumidity, WiRain, WiRaindrop } from "react-icons/wi";
-
-export default async function Home()
+interface Props
 {
-  const cityWeather = await weatherCityByName()
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+export default async function Home({ searchParams }: Props)
+{
+  const name = searchParams.search ? searchParams.search : 'London'
+  const cityWeather = await weatherCityByName(name as string)
   const date = new Date(cityWeather?.current.last_updated as string).toLocaleString("es-MX", {
     hour12: true,
     year: "numeric",

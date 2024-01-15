@@ -4,3 +4,4 @@ export const getDateDay = (date: string): string => {
     });
     return newDate;
 };
+
